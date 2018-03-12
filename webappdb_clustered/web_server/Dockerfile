@@ -23,9 +23,9 @@ COPY start_nginx.sh /usr/local/bin/
 RUN mkdir -p $SRV_PATH && \
     chown nginx:nginx $SRV_PATH && \
     printf "user:$(openssl passwd -crypt $PASSWORD)\n" >> $SRV_PATH/.htpasswd && \
-    chmod +x /usr/local/bin/start_nginx/sh
+    chmod +x /usr/local/bin/start_nginx.sh
 
 # Add our own configuration file
-COPY nginx_main_site.conf /etc/nginx/conf.d/
+COPY nginx_main_site.conf.template /etc/nginx/conf.d/
 
 CMD ["/usr/local/bin/start_nginx.sh"]
