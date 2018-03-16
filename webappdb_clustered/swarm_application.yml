@@ -4,6 +4,8 @@ services:
     image: local_database_clustered
     networks:
       - service_network
+    ports:
+      - 27017:27017      
     deploy:
       replicas: 1
       restart_policy:
@@ -12,6 +14,8 @@ services:
       - database_volume:/data/db
   application-server:
     image: application_server_clustered
+    ports:
+      - 8000:8000    
     networks:
       - service_network
     depends_on:

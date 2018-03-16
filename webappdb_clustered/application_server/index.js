@@ -57,7 +57,7 @@ app.post('/new', (req, res) => {
 
 // Start everything by loading words and then starting the server
 loadWordsFromDatabase().then((words) => {
-    console.info(`Data loaded from database (${words.length} word${words.length > 0 ? 's' : ''})`);
+    console.info(`Data loaded from database ${dbUri} (${words.length} word${words.length > 0 ? 's' : ''})`);
     app.listen(SERVER_PORT, () => {
         console.info("Server started on port %d...", SERVER_PORT);
     });
